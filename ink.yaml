@@ -1,0 +1,30 @@
+cameras:
+    camera1:
+        type: perspective
+
+sources:
+    mapzen:
+        mapzen:
+        type: TopoJSON
+        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson?api_key=mapzen-Xz1zvxc
+
+scene:
+    background:
+        color: [0.00,0.00,0.00]
+layers:
+    earth:
+        data: { source: mapzen }
+        draw:
+            polygons:
+                order: 0
+                color: [1.00,1.00,1.00]
+
+    water:
+        data: { source: mapzen, layer: water }
+        draw:
+            polygons:
+                order: 10010
+                color: [0.00,0.00,0.00]
+
+
+styles:
